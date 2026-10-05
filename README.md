@@ -1,159 +1,167 @@
-# só país — tarifa base
-login__cr.br:senha@gw.dataimpulse.com:823
+# indian residential proxies: what the $1/GB pool really covers, what city targeting costs, and which plan fits your India scraper
 
-# cidade específica — tráfego cobrado em dobro
-login__cr.br;city.salvador:senha@gw.dataimpulse.com:823
+People searching for Indian residential proxies usually aren't browsing. They're mid-project, with one of four jobs in front of them:
 
-# país com exclusão de cidade
-login__cr.br;nocity.saopaulo:senha@gw.dataimpulse.com:823
+- Pulling prices and stock levels off Amazon India, Flipkart, Myntra or IndiaMART
+- Checking where a page or an ad actually shows up in Mumbai versus Lucknow versus Kochi
+- Testing an app or checkout flow the way a Jio or Airtel user would experience it
+- Keeping a dashboard or seller account alive without tripping a security check
 
+All four need the same thing: an IP that a target platform reads as an ordinary Indian home connection, not a rented server.
 
-Dois avisos honestos: a seleção de país é obrigatória para usar cidade, estado, CEP ou ASN; e a DataImpulse não garante disponibilidade de uma cidade específica em qualquer momento — as mais populares têm boa cobertura, mas um pico de demanda pode empurrar seu request para outra região.
+That's the whole premise of residential proxies, and India makes it harder than most markets. The country is mobile-first, a large share of traffic sits behind carrier NAT, and the big local platforms have spent years hardening against automation. Datacenter ranges get flagged fast. So the questions that actually matter are narrower than "which provider is best": how deep is the India pool, what does targeting a specific city cost you, and how much of your spend survives contact with a real target site?
 
-Traduzindo para orçamento: se o seu caso é "preciso que o IP seja brasileiro", você fica em US$ 1/GB. Se o caso exige "preciso que seja de São Paulo capital", o custo efetivo dobra. Vale a pena rodar 100–200 requests de teste na cidade-alvo antes de assumir um volume grande.
+Here's how those questions shake out on DataImpulse, a pay-as-you-go provider that entered the market in 2022 and prices residential traffic at $1/GB.
 
-## Todos os planos, sem assinatura
+## What an Indian residential IP buys you
 
-A DataImpulse trabalha em pay-as-you-go. Não existe mensalidade, não existe renovação automática e o tráfego comprado não expira — GB não usado fica no saldo. A entrada mínima é US$ 5 em qualquer um dos quatro tipos de proxy.
+A residential proxy routes your request through someone's actual home connection. The target site sees a device on a consumer ISP, so the trust signals look normal and the request is far less likely to get a CAPTCHA or an instant block.
 
-| Tipo de proxy | Plano | Tráfego | Preço | Preço por GB | Link |
-| --- | --- | --- | --- | --- | --- |
-| Residencial | Intro | 5 GB | US$ 5 | US$ 1,00 | [Começar](https://bit.ly/dataimPulse) |
-| Residencial | Basic | 50 GB | US$ 50 | US$ 1,00 | [Ver plano](https://bit.ly/dataimPulse) |
-| Residencial | Advanced | 1 TB | US$ 800 | US$ 0,80 (20% off) | [Ver plano](https://bit.ly/dataimPulse) |
-| Residencial | Custom | 5 TB+ | a partir de US$ 4.000 | negociável | [Falar com o time](https://bit.ly/dataimPulse) |
-| Datacenter | Intro | 10 GB | US$ 5 | US$ 0,50 | [Começar](https://bit.ly/dataimPulse) |
-| Datacenter | Basic | 100 GB | US$ 50 | US$ 0,50 | [Ver plano](https://bit.ly/dataimPulse) |
-| Datacenter | Advanced | 1 TB | US$ 450 | US$ 0,45 | [Ver plano](https://bit.ly/dataimPulse) |
-| Datacenter | Custom | 5 TB+ | a partir de US$ 2.250 | negociável | [Falar com o time](https://bit.ly/dataimPulse) |
-| Mobile | Intro | 2,5 GB | US$ 5 | US$ 2,00 | [Começar](https://bit.ly/dataimPulse) |
-| Mobile | Basic | 25 GB | US$ 50 | US$ 2,00 | [Ver plano](https://bit.ly/dataimPulse) |
-| Mobile | Advanced | 1 TB | US$ 1.600 | US$ 1,60 | [Ver plano](https://bit.ly/dataimPulse) |
-| Mobile | Custom | 5 TB+ | a partir de US$ 8.000 | negociável | [Falar com o time](https://bit.ly/dataimPulse) |
-| Residencial Premium | Intro | 1 GB | US$ 5 | US$ 5,00 | [Testar pool premium](https://dataimpulse.com/pt/proxies-residenciais-premium/?aff=86938) |
-| Residencial Premium | Basic | 10 GB | US$ 50 | US$ 5,00 | [Ver plano premium](https://dataimpulse.com/pt/proxies-residenciais-premium/?aff=86938) |
-| Residencial Premium | Custom | 1 TB+ | a partir de US$ 4.000 | negociável | [Ver plano premium](https://dataimpulse.com/pt/proxies-residenciais-premium/?aff=86938) |
+DataImpulse runs a 90M+ IP pool across 195 countries, uses HTTP(S) and SOCKS5, supports rotating and sticky sessions, and doesn't expire the traffic you buy. Country-level targeting is free. India is one of the geographies it maintains a dedicated landing page for, which is a reasonable proxy for "the pool here is maintained rather than leftover."
 
-Repare na forma da curva de preço residencial: ela é quase plana. De 5 GB até cerca de 700–850 GB, a tarifa continua US$ 1/GB. O único degrau de desconto real aparece em 1 TB, quando cai para US$ 0,80/GB. Comprar volume "no meio do caminho" não rende nada além de uma fatura maior — não há motivo para comprar mais do que você consome no curto prazo, justamente porque o saldo não vence.
+The part worth internalising: a residential IP is not a magic key. It changes how the target site perceives your connection. If your request pattern is obviously a bot, a residential IP won't save you.
 
-O plano residencial premium é outro produto, não uma versão melhor do mesmo: IPs de latência mais baixa, segmentação completa sem sobretaxa (inclusive cidade e ASN) e um gerente de conta dedicado. A US$ 5/GB, ele faz sentido quando a tarefa é crítica e o volume é pequeno. Para coleta de dados em escala média, é dinheiro jogado fora.
+## How big the India pool actually is
 
-## Como conectar: gateway, portas e sessão sticky
+This is where most provider marketing gets slippery, so it's worth looking at real counters instead of headline numbers.
 
-A configuração é a mesma em qualquer linguagem. O endpoint é `gw.dataimpulse.com`, com portas diferentes conforme o comportamento de rotação:
+DataImpulse's India location pages publish live figures. On the premium residential page they read roughly 3,500 active IPs at any given moment, around 290,000 unique IPs over a rolling 30 days, and somewhere in the 16,000–20,000 range in the last 24 hours. Those numbers move throughout the day, so treat them as a shape rather than a fixed statistic.
 
-- **823** — HTTP/HTTPS com rotação a cada request
-- **824** — SOCKS5 com rotação a cada request
-- **10000 a 20000** — portas de sessão sticky
+What that tells you:
 
-Exemplo com cURL, forçando saída pelo Brasil em modo rotativo:
+- **Daily churn is high.** Tens of thousands of distinct Indian IPs cycle through in a month, which is what you want for rotating scrapes. You won't exhaust the same addresses repeatedly.
+- **Concurrency is modest.** A few thousand live at once is plenty for most scraping jobs and ad verification, but it's not the same league as providers advertising millions of Indian IPs. If your project needs enormous parallel throughput from India specifically, compare carefully before committing.
 
-bash
-curl -x "http://seulogin__cr.br:suaSenha@gw.dataimpulse.com:823" \
-  https://api.ipify.org/
+For price monitoring, SERP checks and ad verification at normal volumes, the depth is fine. For a crawl that needs 5,000 simultaneous Indian sessions, it's worth a test run first.
 
+If you want to see the current pool counters and plan options for India side by side, 👉 [check the Indian residential proxy plans here](https://dataimpulse.com/proxies-by-location/residential-proxy/in/?aff=86938).
 
-Em Python, o mesmo endereço entra no parâmetro `proxies`:
+## The cost trap: country targeting is free, city targeting isn't
 
-python
-import requests
+Read this before you build your budget, because it's the single most expensive detail on the pricing page.
 
-proxy = "http://seulogin__cr.br:suaSenha@gw.dataimpulse.com:823"
-r = requests.get("https://httpbin.org/ip", proxies={"http": proxy, "https": proxy}, timeout=15)
-print(r.json())  # confirme o IP de saída antes de rodar o job
+DataImpulse splits geo-targeting into two tiers:
 
+- **Standard (included in the base rate):** country selection, country exclusion, and ASN exclusion
+- **Advanced (billed at 2× the standard per-GB rate on residential):** state, city, ZIP code, and specific ASN selection
 
-Dois detalhes que economizam tempo de depuração:
+So a request pinned to Mumbai doesn't cost $1/GB. It costs $2/GB. Same for a ZIP filter, same for targeting a specific ISP by ASN.
 
-1. **Teste o IP de saída antes de rodar o scraper.** Um `curl` para `api.ipify.org` confirma país e operadora em segundos. Erro de sintaxe no parâmetro `cr.br` é a causa mais comum de tráfego saindo do país errado — e você paga por ele do mesmo jeito.
-2. **Autenticação via usuário/senha ou whitelist de IP.** A whitelist é mais prática em servidor com IP fixo; usuário/senha é obrigatório quando o IP de origem varia.
+Run the numbers on a realistic India workload. Say you push 40 GB a month of city-specific data:
 
-## Rotativo ou sticky: escolha pelo alvo, não pelo gosto
+| Targeting setting | Effective rate | Monthly cost at 40 GB |
+| --- | --- | --- |
+| Country: India | $1/GB | $40 |
+| City: Mumbai / Delhi / Bengaluru | $2/GB | $80 |
+| City + ZIP | $2/GB | $80 |
 
-O modo rotativo troca de IP a cada request. É o padrão para crawler de alto volume: distribui as requisições entre milhares de endereços e reduz a chance de um único IP acumular bloqueios.
+Nothing changes in the data you receive. You've just doubled the bill for a narrower exit point. Sometimes that's correct — if you're verifying whether a Flipkart offer is live in a specific metro, country-level IPs won't answer the question. But if your goal is "collect Indian pricing," country-level targeting will usually get you there at half the cost.
 
-O modo sticky mantém o mesmo IP amarrado a uma porta por um período definido. A configuração aceita de 1 a 120 minutos, com média real de cerca de 30 minutos. E aqui vale a explicação técnica que o suporte da DataImpulse dá abertamente: como os IPs vêm de usuários reais, se aquele dispositivo sai da rede, a sessão gira automaticamente para o próximo IP disponível. Você configura o intervalo desejado, mas a duração efetiva depende do aparelho do outro lado. Isso não é falha do provedor — é como funciona qualquer pool residencial baseado em consentimento.
+Here's a useful way to think about it: turn on advanced targeting only when a country-level Indian IP would give you a wrong answer.
 
-Na prática:
+One more wrinkle, since DataImpulse markets premium residential as having "full targeting free." That's true, and it's still more expensive overall. Premium residential runs $5/GB. Standard residential with city targeting runs $2/GB. Premium's free targeting isn't a discount on targeting, it's a different product: a higher-trust, lower-latency pool with a dedicated proxy manager attached. Buy it for the pool quality, not to save money on city filters.
 
-- **SERP, preço, listagem pública, verificação de anúncio** → rotativo
-- **Login, carrinho, fluxo com múltiplos passos, teste de checkout** → sticky, começando em 30 minutos
+AIMultiple's India proxy benchmark flagged exactly this when it evaluated DataImpulse against Oxylabs, Decodo and others: the double-charged city and ZIP filters mean your cost model has to be tested, not assumed.
 
-👉 [Criar conta e testar com os US$ 5 iniciais, sem assinatura](https://bit.ly/dataimPulse)
+## Every DataImpulse plan, in one table
 
-## Limites, reembolso e o que os testes de terceiros mostram
+All four proxy types, current published rates. Every plan is pay-as-you-go with no subscription and traffic that doesn't expire.
 
-Nem tudo é vantagem, e vale listar o que atrapalha.
+| Proxy type | Plan | Traffic | Price | Rate | 1 TB+ rate | Buy |
+| --- | --- | --- | --- | --- | --- | --- |
+| Residential | Intro | 5 GB | $5 | $1.00/GB | $0.80/GB | [Start with the $5 India plan](https://dataimpulse.com/proxies-by-location/residential-proxy/in/?aff=86938) |
+| Residential | Basic | 50 GB | $50 | $1.00/GB | $0.80/GB | [Compare residential tiers](https://dataimpulse.com/use-cases/price-comparison/?aff=86938) |
+| Residential | Advanced | 1 TB | $800 | $0.80/GB | $0.80/GB | [Check the volume tier](https://dataimpulse.com/proxies-by-location/residential-proxy/in/?aff=86938) |
+| Mobile | Intro | 2.5 GB | $5 | $2.00/GB | $1.60/GB | [See mobile proxy options](https://bit.ly/dataimPulse) |
+| Mobile | Advanced | 1 TB | — | $1.60/GB | $1.60/GB | [See mobile proxy options](https://bit.ly/dataimPulse) |
+| Datacenter | Intro | 10 GB | $5 | $0.50/GB | $0.45/GB | [See datacenter pricing](https://bit.ly/dataimPulse) |
+| Datacenter | Advanced | 1 TB | — | $0.45/GB | $0.45/GB | [See datacenter pricing](https://bit.ly/dataimPulse) |
+| Premium Residential | Intro | 1 GB | $5 | $5.00/GB | $4.00/GB | [View premium India IPs](https://dataimpulse.com/proxies-by-location/premium-residential-proxy/in/?aff=86938) |
+| Premium Residential | Basic | 10 GB | $50 | $5.00/GB | $4.00/GB | [View premium India IPs](https://dataimpulse.com/proxies-by-location/premium-residential-proxy/in/?aff=86938) |
+| Premium Residential | Custom | from 1,000 GB | $4,000 | $4.00/GB | $4.00/GB | [Compare premium plans](https://dataimpulse.com/premium-residential-proxies/?aff=86938) |
 
-**Não existe teste gratuito.** Toda avaliação começa com uma compra de no mínimo US$ 5. Em compensação, o crédito não expira, então o custo de testar é US$ 5 em dinheiro real, e não uma amostra grátis com prazo de validade.
+Two details worth noticing about the residential ladder. The $1/GB rate holds flat from the smallest top-up all the way up to roughly 850 GB — there's no negotiated mid-tier price. The only step down is the 1 TB Advanced tier at $0.80/GB, a 20% cut. Below 1 TB, buying a "plan" instead of topping up doesn't change your rate. Above 5 TB on premium residential, custom pricing applies.
 
-**Reembolso de 7 dias só em pagamento por cartão.** A garantia cobre planos Intro quando menos de 80% do tráfego foi consumido. Compra em cripto no plano Intro não é reembolsável — isso está documentado e vale ler antes de pagar em USDT.
+## Which plan fits which India workload
 
-**Segmentação avançada consome o dobro.** Já tratado acima, mas é o principal item que estoura orçamento de quem não leu a documentação.
+**Just testing India.** The $5 Intro is the right move. At residential rates that's 5 GB, which is a few thousand page loads — enough to find out whether your targets actually accept the pool. Don't buy 1 TB on faith.
 
-**Sem PayPal em toda a documentação recente de checkout.** Os métodos confirmados incluem cartão via Stripe (Visa e Mastercard) e cripto via Cryptomus (Bitcoin, Ethereum, USDT, Litecoin), com PayPal, transferência bancária, Alipay, Apple Pay e Google Pay aparecendo com disponibilidade variável por região. Se PayPal é a única forma de pagamento aprovada na sua empresa, confirme antes.
+**Ongoing price or SERP monitoring.** Top up at $1/GB and leave city targeting off unless a specific question requires it. If you truly need city-level results across multiple Indian metros, run the doubled rate through your own numbers first, and consider whether premium residential's dedicated manager and faster pool matters more than the per-GB difference.
 
-Do lado externo, o que existe de avaliação independente:
+**High-volume crawling.** The Advanced tier at $0.80/GB is the only structural discount on standard residential. If your India project is bandwidth-heavy and mostly country-targeted, this is where the price drops.
 
-- A TechRadar, em análise própria, reportou taxa de sucesso consistentemente alta em scraping com os proxies residenciais.
-- A HostAdvice deu nota geral 9,1/10, com 9,5/10 em preço, e registrou resposta humana no chat em cerca de 7 minutos.
-- A Proxyway concedeu o prêmio de Maior Progresso.
-- Levantamentos de terceiros apontam nota na casa de 4,6/5 no Trustpilot e 4,8/5 no G2.
+**Login-dependent flows.** Standard residential works, but session behaviour matters more than the plan tier. See below.
 
-E o contraponto, que também aparece em análises independentes: o pool é mais raso em geografias de terceiro nível (África subsaariana, Ásia Central) do que Bright Data e Oxylabs, e alvos protegidos por Cloudflare têm taxa de sucesso menor do que em boutiques especializadas. Para o Brasil, que está entre os mercados principais, esse ponto pesa menos — mas pesa.
+**Multiple Indian accounts at once.** Residential is not the ideal tool here. ISP proxies with static, dedicated IPs are the usual answer for account management, and DataImpulse's lineup is residential, premium residential, mobile and datacenter. Mobile proxies are the closest fit if you're doing app-side automation.
 
-## Comparando com o mercado antes de decidir
+## Rotating vs sticky sessions, and the India-specific catch
 
-O US$ 1/GB é agressivo, mas não é o menor preço absoluto do mercado em todos os volumes. Comparações publicadas mostram que, entre 100 e 150 GB, provedores como a Evomi trabalham na faixa de US$ 0,49/GB — metade do preço — enquanto a DataImpulse continua em US$ 1/GB até o degrau de 1 TB. Em 1 TB, a Evomi também sai mais barata no residencial rotativo.
+DataImpulse gives you both connection types, and picking wrong will cost you more than the per-GB rate.
 
-Então onde está a vantagem real?
+**Rotating** swaps the IP on every request. Port 823 for HTTP/HTTPS, port 824 for SOCKS5, gateway `gw.dataimpulse.com`. Use it for bulk price collection, listing scrapes, anything where each page is independent.
 
-Uma análise de custo da webscraping.ai coloca o ponto de equilíbrio em torno de 50 GB/mês: abaixo disso, o modelo pay-as-you-go de US$ 1/GB com mínimo de US$ 5 ganha de qualquer assinatura, porque assinatura cobra por um pacote que você não termina de usar. Acima disso, principalmente passando de 100 GB, provedores com tarifa decrescente por volume ficam mais baratos por gigabyte.
+**Sticky** binds one IP to your thread for a set window, on ports between 10000 and 20000. You can configure the rotation interval up to 120 minutes, though the realistic average is about 30 minutes. The reason is structural: the IP belongs to a real person's device. When that device goes offline, the session ends and the system rotates you to the next available IP. No provider controls that, regardless of how the sales page phrases it.
 
-O segundo diferencial é o tráfego que não expira. Se o seu projeto roda em picos — um scraping grande em março, outro em agosto — você compra GB e usa quando quiser. Não há "use ou perca" no fim do ciclo mensal, e isso muda o cálculo para quem tem demanda irregular.
+For Indian platforms specifically, sticky sessions matter when your workflow involves a login, a cart, or a multi-step sequence where the server expects the same visitor across steps. Rotating mid-flow is a fast way to get flagged.
 
-Se autenticação de contas em múltiplos perfis de navegador é o caso de uso principal, nenhum pool rotativo resolve bem. Para isso, proxies ISP estáticos são a ferramenta certa. Não é limitação da DataImpulse especificamente; é a natureza de IP residencial rotativo.
+Authentication is straightforward: username and password, or IP whitelisting. Both work across all four proxy types.
 
-## Vale a pena para o seu caso?
+## Judge the cost per successful page, not the per-GB price
 
-Cenários em que o encaixe é bom:
+AIMultiple ran Indian proxy providers against the same target list — amazon.in, flipkart.com and indiamart.com, with requests fired on a fixed schedule and a shared URL pool. Their conclusion on DataImpulse was blunt and fair: success rate landed in the same broad band as several other providers, and the decision should hinge on cost per successful request rather than the listed per-GB price.
 
-- Você precisa de IP brasileiro, com volume abaixo de ~100 GB/mês
-- O trabalho é intermitente e você não quer assinatura mensal
-- Você quer conferir o tamanho do pool do Brasil antes de comprar, e não descobrir depois
-- Você testa antes de escalar e prefere gastar US$ 5 a assinar um plano anual
+They also noted response times clustered tightly across providers, mostly in the 20–24 second range, which means speed is a weak differentiator here and page success is the thing that actually moves your bill.
 
-Cenários em que procure outra coisa:
+Translated into practice: a $1/GB rate with a 70% hit rate can be more expensive than a $2/GB rate with a 95% hit rate, because every blocked request still burns bandwidth on retries. The gap widens further if you've enabled 2× city targeting on the blocked traffic.
 
-- Volume acima de 150–200 GB/mês com previsibilidade — tarifas decrescentes de concorrentes ganham
-- Multi-conta em redes sociais ou e-commerce — precisa de ISP estático
-- Alvos agressivos com Cloudflare pesado ou geografias fora do eixo principal
-- Segmentação por cidade em volume alto — a sobretaxa de 2× encarece rápido
+The cheap way to settle this is a pilot. Load $5, point your scraper at four or five of your real Indian targets, and measure successful pages per GB on your own site list. DataImpulse's blog makes the same argument about the wider market: the listed rate is not the real cost.
 
-## Perguntas frequentes
+If you'd rather run that test on the India-specific pool than on generic traffic, 👉 [start with an India residential plan here](https://dataimpulse.com/proxies-by-location/residential-proxy/in/?aff=86938).
 
-**Existem IPs residenciais brasileiros de verdade no pool?**
-Sim. O contador público da própria empresa mostra na casa de 41 mil IPs ativos no Brasil e mais de 580 mil IPs únicos em 30 dias. A DataImpulse mantém cluster próprio na região e adicionou novos endereços IP de entrada em atualização de infraestrutura divulgada no blog.
+## Money, minimums and refunds
 
-**Quanto custa 1 GB de proxy residencial brasileiro?**
-US$ 1/GB quando você segmenta apenas por país. O tráfego roteado por filtros de cidade, estado, CEP ou ASN específico é cobrado em dobro, ficando perto de US$ 2/GB. O mínimo de entrada é US$ 5 (5 GB).
+Worth knowing before you top up:
 
-**O tráfego expira?**
-Não. Esse é um dos diferenciais centrais do modelo: você compra GB, o saldo fica na conta e é consumido quando o projeto rodar.
+- **First purchase minimum is $5.** That buys 5 GB of residential, 10 GB of datacenter, or 2.5 GB of mobile traffic.
+- **Later top-ups are reported to start at $50.** Reviewers covering DataImpulse consistently mention this jump, so if you were planning to drip-feed $5 at a time, confirm the current floor with support first.
+- **There's no free trial in the unpaid sense.** Access starts with a purchase. The week-long money-back window is the closest thing.
+- **Refunds cover card payments on Intro plans within 7 days**, provided you've consumed less than 80% of the traffic. Crypto purchases on Intro plans sit outside the refund policy.
+- **Payment methods confirmed in review coverage are cards and cryptocurrency** (the crypto gateway supports USDT, Bitcoin, Ethereum and Litecoin). If you need a specific local method, check at checkout rather than assuming.
 
-**Dá para manter o mesmo IP brasileiro por muito tempo?**
-Sessões sticky são configuráveis de 1 a 120 minutos em portas de 10000 a 20000, com média efetiva perto de 30 minutos. Como os IPs vêm de usuários reais, a sessão gira antes se o dispositivo sair da rede.
+Support is 24/7 human help through live chat, email and Telegram. HostAdvice's 2026 review timed it and found technically complete answers on session behaviour — including the detail that a 120-minute sticky interval is a ceiling, not a guarantee — in roughly ten minutes.
 
-**Existe teste grátis?**
-Não há período gratuito. O caminho é o plano Intro de US$ 5, que inclui 5 GB residenciais, não expira e tem garantia de reembolso de 7 dias em compras no cartão, desde que menos de 80% do tráfego tenha sido usado.
+## Who should look elsewhere
 
-**Preciso de cartão internacional?**
-O checkout aceita cartão Visa e Mastercard via Stripe e também cripto (Bitcoin, Ethereum, USDT, Litecoin) via Cryptomus. Outros métodos aparecem com disponibilidade variável por região, então vale confirmar no momento da compra.
+DataImpulse is a budget-first platform, and that framing implies trade-offs. Review coverage has flagged the absence of SOC 2 or ISO 27001 certification, which rules it out for procurement-gated enterprise buyers, plus thinner pool depth in harder-to-reach geographies. India's depth here is real but smaller than the largest networks, as the live counters above show.
 
-## O resumo que interessa
+If you need a mountain of Indian IPs in parallel, or a compliance paper trail, a premium provider will serve you better. If you need Indian residential IPs at a rate that lets you run a real pilot for $5, the maths is hard to argue with.
 
-IP brasileiro confiável para scraping, monitoramento de SERP e verificação de anúncio custa, hoje, US$ 1/GB na DataImpulse — sem mensalidade, sem expiração de saldo e com o tamanho do pool nacional publicado para você checar antes. O que precisa entrar na sua conta é a sobretaxa de 2× para segmentação por cidade e o fato de que, acima de 100–150 GB/mês, concorrentes com tarifa decrescente passam à frente no preço.
+## FAQ on Indian residential proxies
 
-Se o seu perfil é o de volume baixo a médio, com demanda irregular e necessidade real de IPs do Brasil, o risco de testar é de cinco dólares.
+**Do I need city-level targeting for Indian SEO checks?**
+If you're ranking or ad checking, yes — results differ meaningfully between metros and the surcharge is the cost of an accurate answer. If you're just collecting product prices, country-level India IPs usually do the job.
 
-👉 [Ver planos e preços atualizados da DataImpulse](https://bit.ly/dataimPulse)
+**Can an Indian residential IP get me into geo-restricted Indian streaming sites?**
+A residential IP is the correct tool because it looks like a genuine local connection. Whether a specific platform grants access depends on its own checks, and no provider can promise that. Test your target before scaling.
+
+**How long can a sticky session last?**
+Configurable up to 120 minutes, with about 30 minutes as the practical average. It can end sooner if the underlying device disconnects.
+
+**Does unused traffic expire?**
+No. Bought bandwidth stays on your balance until you consume it, which is a meaningful difference from monthly subscription models.
+
+**What's the cheapest way to start?**
+$5 for the residential Intro plan. Run it against your actual Indian targets, measure successful pages per GB, and only then decide whether city targeting or a premium pool earns its keep.
+
+**Is rotating or sticky better for Flipkart and Amazon India?**
+Rotating for listing and price pages, sticky for anything involving a session — logins, carts, multi-step flows.
+
+## The short version
+
+Indian residential proxies are a data-access problem with a targeting-cost problem stapled to the side. DataImpulse's pitch is clean: $1/GB for standard residential, free country targeting, non-expiring traffic, a $5 entry point, and a real India pool with a few thousand concurrent IPs and several hundred thousand unique addresses cycling through each month.
+
+The catch is equally clean. City, ZIP and ASN targeting costs double on standard residential. Below 1 TB there's no volume discount. And the right comparison is never the headline rate — it's the cost per page that actually comes back from the Indian sites you care about.
+
+Load five dollars, point it at your real targets, and let your own hit rate decide. That test costs less than most providers' minimum commitment, and it answers the only question that matters.
+
+👉 [Compare Indian residential proxy plans and start the test](https://dataimpulse.com/proxies-by-location/residential-proxy/in/?aff=86938)
